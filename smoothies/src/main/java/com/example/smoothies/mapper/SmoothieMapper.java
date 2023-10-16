@@ -1,8 +1,8 @@
 package com.example.smoothies.mapper;
 
-import com.example.smoothies.model_dto.NutritionDto;
-import com.example.smoothies.model_dto.SmoothieDto;
-import com.example.smoothies.repository.Smoothie;
+import com.example.smoothies.repository.model.dto.NutritionDto;
+import com.example.smoothies.repository.model.dto.SmoothieDto;
+import com.example.smoothies.repository.model.SmoothieEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -12,32 +12,32 @@ import java.util.List;
 @Service
 public class SmoothieMapper {
 
-    public SmoothieDto mapEntityToDto(Smoothie smoothie) {
+    public SmoothieDto mapEntityToDto(SmoothieEntity smoothieEntity) {
         return SmoothieDto.builder()
-                .id(smoothie.getId())
-                .name(smoothie.getName())
-                .description(smoothie.getDescription())
+                .id(smoothieEntity.getId())
+                .name(smoothieEntity.getName())
+                .description(smoothieEntity.getDescription())
                 .nutritions(NutritionDto.builder()
-                        .kcal(smoothie.getKcal())
-                        .fat(smoothie.getFat())
-                        .saturates(smoothie.getSaturates())
-                        .carbs(smoothie.getCarbs())
-                        .sugars(smoothie.getSugars())
-                        .fibre(smoothie.getFibre())
-                        .protein(smoothie.getProtein())
-                        .salt(smoothie.getSalt())
+                        .kcal(smoothieEntity.getKcal())
+                        .fat(smoothieEntity.getFat())
+                        .saturates(smoothieEntity.getSaturates())
+                        .carbs(smoothieEntity.getCarbs())
+                        .sugars(smoothieEntity.getSugars())
+                        .fibre(smoothieEntity.getFibre())
+                        .protein(smoothieEntity.getProtein())
+                        .salt(smoothieEntity.getSalt())
                         .build())
                 .build();
 
     }
-    public List<SmoothieDto> mapEntitiesToDtos(List<Smoothie> smoothies) {
+    public List<SmoothieDto> mapEntitiesToDtos(List<SmoothieEntity> smoothies) {
         List<SmoothieDto> dtos = new ArrayList<>();
-        smoothies.forEach(smoothie -> dtos.add(mapEntityToDto(smoothie)));
+        smoothies.forEach(smoothieEntity -> dtos.add(mapEntityToDto(smoothieEntity)));
       return dtos;
     }
 
-    public Smoothie mapDtoToEntity(SmoothieDto dto) {
-        Smoothie entity = Smoothie.builder()
+    public SmoothieEntity mapDtoToEntity(SmoothieDto dto) {
+        SmoothieEntity entity = SmoothieEntity.builder()
                 .id(dto.getId())
                 .name(dto.getName())
                 .description(dto.getDescription()).build();

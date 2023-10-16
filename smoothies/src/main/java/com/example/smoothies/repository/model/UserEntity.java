@@ -1,4 +1,4 @@
-package com.example.smoothies.model;
+package com.example.smoothies.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;

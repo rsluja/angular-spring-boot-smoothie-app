@@ -1,6 +1,6 @@
 package com.example.smoothies.repository;
 
-import com.example.smoothies.model.UserEntity;
+import com.example.smoothies.repository.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

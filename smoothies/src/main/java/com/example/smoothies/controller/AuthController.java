@@ -1,16 +1,16 @@
 package com.example.smoothies.controller;
 
-import com.example.smoothies.model_dto.request.LoginRequest;
-import com.example.smoothies.model_dto.request.SignupRequest;
-import com.example.smoothies.model_dto.response.JwtResponse;
-import com.example.smoothies.model_dto.response.MessageResponse;
+import com.example.smoothies.security.dto.request.LoginRequest;
+import com.example.smoothies.security.dto.request.SignupRequest;
+import com.example.smoothies.security.dto.response.JwtResponse;
+import com.example.smoothies.security.dto.response.MessageResponse;
 import com.example.smoothies.repository.RoleRepository;
 import com.example.smoothies.repository.UserRepository;
 import com.example.smoothies.security.jwt.JwtUtils;
 import com.example.smoothies.security.service.UserDetailsImpl;
-import com.example.smoothies.model.ERole;
-import com.example.smoothies.model.RoleEntity;
-import com.example.smoothies.model.UserEntity;
+import com.example.smoothies.repository.model.ERole;
+import com.example.smoothies.repository.model.RoleEntity;
+import com.example.smoothies.repository.model.UserEntity;
 import com.example.smoothies.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.util.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -78,7 +76,6 @@ public class AuthController {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
 
-        // Create new user's account
         UserEntity user = new UserEntity(signUpRequest.getUsername(), signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
 

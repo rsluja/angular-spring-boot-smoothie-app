@@ -1,6 +1,6 @@
 package com.example.smoothies.controller;
 
-import com.example.smoothies.model_dto.SmoothieDto;
+import com.example.smoothies.repository.model.dto.SmoothieDto;
 import com.example.smoothies.services.SmoothieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class SmoothiesController {
 
-    SmoothieService smoothieService;
+    private SmoothieService smoothieService;
 
     SmoothiesController(SmoothieService smoothieService) {
         this.smoothieService = smoothieService;

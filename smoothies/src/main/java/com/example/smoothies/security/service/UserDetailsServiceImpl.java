@@ -2,7 +2,7 @@ package com.example.smoothies.security.service;
 
 import com.example.smoothies.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import com.example.smoothies.model.UserEntity;
+import com.example.smoothies.repository.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

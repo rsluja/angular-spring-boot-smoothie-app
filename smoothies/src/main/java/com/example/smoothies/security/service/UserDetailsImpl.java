@@ -1,7 +1,7 @@
 package com.example.smoothies.security.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.example.smoothies.model.UserEntity;
+import com.example.smoothies.repository.model.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

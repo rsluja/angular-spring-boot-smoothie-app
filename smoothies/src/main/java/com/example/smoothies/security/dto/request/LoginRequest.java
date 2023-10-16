@@ -1,15 +1,12 @@
-package com.example.smoothies.model_dto.request;
+package com.example.smoothies.security.dto.request;
 
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Set;
-
 @Data
 @Builder
-public class SignupRequest {
+public class LoginRequest {
     String username;
     String email;
     String password;
-    Set<String> roles;
 }

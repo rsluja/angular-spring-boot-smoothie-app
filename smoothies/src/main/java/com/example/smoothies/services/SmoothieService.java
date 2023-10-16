@@ -1,8 +1,8 @@
 package com.example.smoothies.services;
 
 import com.example.smoothies.mapper.SmoothieMapper;
-import com.example.smoothies.model_dto.SmoothieDto;
-import com.example.smoothies.repository.Smoothie;
+import com.example.smoothies.repository.model.dto.SmoothieDto;
+import com.example.smoothies.repository.model.SmoothieEntity;
 import com.example.smoothies.repository.SmoothieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +16,9 @@ import java.util.Optional;
 public class SmoothieService {
 
     @Autowired
-    SmoothieRepository repository;
+    private SmoothieRepository repository;
     @Autowired
-    SmoothieMapper smoothieMapper;
+    private SmoothieMapper smoothieMapper;
 
     public List<SmoothieDto> getAllSmoothies() {
         return smoothieMapper.mapEntitiesToDtos(repository.findAll());
@@ -31,9 +31,9 @@ public class SmoothieService {
     }
 
     public ResponseEntity<SmoothieDto> updateSmoothie(SmoothieDto smoothieDto, Long id) {
-        Optional<Smoothie> fromDB = repository.findById(id);
+        Optional<SmoothieEntity> fromDB = repository.findById(id);
         if (fromDB.isPresent()) {
-            Smoothie saved = repository.save(smoothieMapper.mapDtoToEntity(smoothieDto));
+            SmoothieEntity saved = repository.save(smoothieMapper.mapDtoToEntity(smoothieDto));
             return new ResponseEntity<>(smoothieMapper.mapEntityToDto(saved), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -1,4 +1,4 @@
-package com.example.smoothies.model;
+package com.example.smoothies.repository.model;
 
 public enum ERole {
     BUSINESS_OWNER,

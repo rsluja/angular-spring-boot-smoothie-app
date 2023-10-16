@@ -1,4 +1,4 @@
-package com.example.smoothies.model_dto;
+package com.example.smoothies.repository.model.dto;
 
 
 import lombok.Builder;

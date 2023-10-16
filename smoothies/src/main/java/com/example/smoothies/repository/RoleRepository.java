@@ -1,7 +1,7 @@
 package com.example.smoothies.repository;
 
-import com.example.smoothies.model.ERole;
-import com.example.smoothies.model.RoleEntity;
+import com.example.smoothies.repository.model.ERole;
+import com.example.smoothies.repository.model.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

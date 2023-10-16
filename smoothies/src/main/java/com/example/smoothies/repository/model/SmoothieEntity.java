@@ -1,4 +1,4 @@
-package com.example.smoothies.repository;
+package com.example.smoothies.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,7 +9,7 @@ import lombok.*;
 @Builder(toBuilder=true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Smoothie {
+public class SmoothieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
